@@ -14,3 +14,7 @@ ZERO_TO_NINE = range(1, 10)
 
 def find_missing_numbers(nums: np.ndarray) -> Set[int]:
     return set(ZERO_TO_NINE) - set(nums)
+
+
+def make_empty_board():
+    return np.zeros((9, 9), dtype=int)

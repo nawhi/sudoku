@@ -4,30 +4,13 @@ from typing import List
 
 import numpy as np
 
+from core.model.board import make_empty_board
+from core.printer import board_as_string
 
-EXAMPLE_BOARD = """
-┌───────┬───────┬───────┐
-│ . . 6 │ 8 7 1 │ . . 3 │
-│ . 7 3 │ . 5 6 │ 1 9 . │
-│ . . . │ 3 4 9 │ . 2 7 │
-├───────┼───────┼───────┤
-│ 3 4 2 │ . . . │ . 8 . │
-│ . 6 . │ . 2 . │ . . . │
-│ . . . │ . . 3 │ . 5 2 │
-├───────┼───────┼───────┤
-│ . 1 . │ 7 . 4 │ 8 . . │
-│ 7 . . │ 5 9 8 │ 2 6 1 │
-│ . . 5 │ . . . │ 9 . . │
-└───────┴───────┴───────┘
-"""
 
 class SudokuTestCase(unittest.TestCase):
     def assertBoardsEqual(self, board: np.ndarray, expected: np.ndarray):
-        self.assertEqual(board.tolist(), expected.tolist())
-
-
-def make_empty_board():
-    return np.zeros((9, 9), dtype=int)
+        self.assertEqual(board_as_string(board), board_as_string(expected))
 
 
 def board_of_rows(raw_rows: List[str]):

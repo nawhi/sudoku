@@ -1,3 +1,5 @@
+import textwrap
+
 import numpy as np
 
 from core.model.board import SudokuBoard
@@ -14,6 +16,16 @@ STRATEGIES = [
 ]
 
 
+def all_strategies_failed(board):
+    message = f"""
+    Cannot solve this board!
+    Board state before failure:\n{board_as_string(board, line_prefix="    ")}
+    All strategies tried:
+    {", ".join(strategy.__name__ for strategy in STRATEGIES)}
+    """
+    raise NotImplementedError(message)
+
+
 def solve(board: SudokuBoard) -> SudokuBoard:
     while True:
         board_before = board.copy()
@@ -25,9 +37,6 @@ def solve(board: SudokuBoard) -> SudokuBoard:
                 print(f"Board state before errored strategy:\n{board_as_string(board)}")
                 raise err
         if np.array_equal(board, board_before):
-            print("No progress made!")
-            print("Current board state:")
-            print(board_as_string(board))
-            raise NotImplementedError("Can't solve this board!")
+            all_strategies_failed(board)
         if is_solved(board):
             return board

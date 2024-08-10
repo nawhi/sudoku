@@ -12,8 +12,6 @@ def parse_board(raw: str):
     :param raw: The string representation of the board.
     :return: The board as a numpy array.
     """
-    lines = raw.strip().split("\n")
-    board = np.zeros((9, 9), dtype=int)
     numbers = RE_EXTRACT_BOARD.findall(raw)
     if len(numbers) != 81:
         raise ValueError(f"Invalid board: expected to find 81 numbers, got {len(numbers)}")
