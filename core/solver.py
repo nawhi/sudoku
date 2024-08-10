@@ -3,12 +3,14 @@ import numpy as np
 from core.model.board import SudokuBoard
 from core.checker import is_solved
 from core.printer import board_as_string
+from core.strategies.elimination import row_col_subgrid_elimination
 from core.strategies.last_cell import last_cell_in_row, last_cell_in_column, last_cell_in_subgrid
 
 STRATEGIES = [
     last_cell_in_row,
     last_cell_in_column,
-    last_cell_in_subgrid
+    last_cell_in_subgrid,
+    row_col_subgrid_elimination
 ]
 
 
