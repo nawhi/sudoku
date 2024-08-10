@@ -1,3 +1,5 @@
+from typing import Set
+
 import numpy as np
 
 SudokuBoard = np.ndarray
@@ -10,5 +12,5 @@ def subgrid_of_board(board: SudokuBoard, i: int, j: int) -> np.ndarray:
 ZERO_TO_NINE = range(1, 10)
 
 
-def find_missing_numbers(nums):
+def find_missing_numbers(nums: np.ndarray) -> Set[int]:
     return set(ZERO_TO_NINE) - set(nums)
