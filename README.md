@@ -1,6 +1,4 @@
-# Sudoku Solver Strategy
-
-This is a Python project set up to
+# Sudoku Solver Playground
 
 A framework for playing around with all the many ways you can implement a Sudoku solver, without having to write too
 much parsing boilerplate. In particular I was interested in writing solution strategies the way a human might do it,
