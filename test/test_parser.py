@@ -2,6 +2,7 @@ import unittest
 
 import numpy as np
 
+from core.model.board import SudokuBoard
 from core.parser import parse_board
 
 BOARD_AS_STRING = """

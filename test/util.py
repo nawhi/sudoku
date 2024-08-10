@@ -5,6 +5,22 @@ from typing import List
 import numpy as np
 
 
+EXAMPLE_BOARD = """
+┌───────┬───────┬───────┐
+│ . . 6 │ 8 7 1 │ . . 3 │
+│ . 7 3 │ . 5 6 │ 1 9 . │
+│ . . . │ 3 4 9 │ . 2 7 │
+├───────┼───────┼───────┤
+│ 3 4 2 │ . . . │ . 8 . │
+│ . 6 . │ . 2 . │ . . . │
+│ . . . │ . . 3 │ . 5 2 │
+├───────┼───────┼───────┤
+│ . 1 . │ 7 . 4 │ 8 . . │
+│ 7 . . │ 5 9 8 │ 2 6 1 │
+│ . . 5 │ . . . │ 9 . . │
+└───────┴───────┴───────┘
+"""
+
 class SudokuTestCase(unittest.TestCase):
     def assertBoardsEqual(self, board: np.ndarray, expected: np.ndarray):
         self.assertEqual(board.tolist(), expected.tolist())
