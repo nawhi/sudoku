@@ -9,6 +9,24 @@ and [Rob](https://github.com/robertsteane) (who you should hire).
 Note that this repo is not intended to be production quality code or to have a perfect API / data model for managing the Sudoku board.
 A numpy ndarray was good enough for what I wanted.
 
+## Installation
+
+The project uses Python 3.11.6. This might be `python` or `python3` on your machine depending on your setup. These instructions are for Unix-like systems.
+
+Clone the repo and install the requirements:
+
+```bash
+git clone https://github.com/nawhi/sudoku
+cd sudoku
+
+# Create a virtual environment and activate it
+python3 -m venv .venv  
+source .venv/bin/activate
+
+# Install the requirements in the venv
+pip install -r requirements.txt
+```
+
 ## How to add a new strategy
 
 - Create a Python file in `core/strategies`
