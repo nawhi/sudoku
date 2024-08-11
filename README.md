@@ -12,7 +12,7 @@ A numpy ndarray was good enough for what I wanted.
 ## How to add a new strategy
 
 - Create a Python file in `core/strategies`
-- If you want to unit test, create a test file in `test/strategies` (look at the other tests for examples)
+- If you want to unit test, create a test file in `test/strategies` (look at the other tests for examples). Note the tests are heavily designed to work in PyCharm or another IDE where assertEqual results can be viewed in the native diff viewer. Their output may not be as useful in the console. 
 - For debugging you can use the methods in `core/printer.py`
 - To test a full sudoku in combination with all strategies, use `core/solver.py` and its test
 
