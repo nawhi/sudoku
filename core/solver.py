@@ -1,18 +1,17 @@
-import textwrap
-
 import numpy as np
 
-from core.model.board import SudokuBoard
 from core.checker import is_solved
+from core.model.board import SudokuBoard
 from core.printer import board_as_string
-from core.strategies.elimination import row_col_subgrid_elimination
+from core.strategies.elimination import single_cell_elimination, subgrid_elimination
 from core.strategies.last_cell import last_cell_in_row, last_cell_in_column, last_cell_in_subgrid
 
 STRATEGIES = [
     last_cell_in_row,
     last_cell_in_column,
     last_cell_in_subgrid,
-    row_col_subgrid_elimination
+    single_cell_elimination,
+    subgrid_elimination
 ]
 
 

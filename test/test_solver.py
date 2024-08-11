@@ -13,13 +13,13 @@ import os
 def can_solve(puzzle: str):
     return is_solved(solve(parse_board(puzzle)))
 
+
 def load_from_digit_string(line: str) -> SudokuBoard:
     """ Loads from 81 digit string into SudokuBoard"""
     return parse_board("".join(line.split()))
 
 
 def load_qqwing_examples(level: str):
-
     # open the file test/resources/qqwing_{level}.sdm in the most Pythonic way
     # relative to our working directory it is ./resources/qqwing_{level}.sdm
     path = os.path.join("resources", f"qqwing_{level}.sdm")
@@ -39,7 +39,7 @@ class TestSolver(SudokuTestCase):
     def test_solves_single_hard(self):
         self.assertTrue(can_solve(PUZZLE_HARD))
 
-    @unittest.skip("WIP - currently only Simple ones pass")
+    @unittest.skip("WIP - currently 1,453 of 4,001")
     def test_solves_all_generated_examples(self):
         for level in ["simple", "easy", "intermediate", "expert"]:
             for i, example in enumerate(load_qqwing_examples(level)):

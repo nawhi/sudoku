@@ -1,4 +1,4 @@
-from typing import Set
+from typing import Set, Iterable
 
 import numpy as np
 
@@ -7,6 +7,10 @@ SudokuBoard = np.ndarray
 
 def subgrid_of_board(board: SudokuBoard, i: int, j: int) -> np.ndarray:
     return board[i * 3:(i + 1) * 3, j * 3:(j + 1) * 3]
+
+
+def subgrids_of_board(board: SudokuBoard) -> Iterable[np.ndarray]:
+    return (subgrid_of_board(board, i, j) for i in range(3) for j in range(3))
 
 
 ZERO_TO_NINE = range(1, 10)
