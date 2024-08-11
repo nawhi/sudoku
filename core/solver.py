@@ -3,7 +3,8 @@ import numpy as np
 from core.checker import is_solved
 from core.model.board import SudokuBoard
 from core.printer import board_as_string
-from core.strategies.elimination import single_cell_elimination, subgrid_elimination
+from core.strategies.elimination import single_cell_elimination, subgrid_elimination, column_elimination, \
+    row_elimination
 from core.strategies.last_cell import last_cell_in_row, last_cell_in_column, last_cell_in_subgrid
 
 STRATEGIES = [
@@ -11,6 +12,8 @@ STRATEGIES = [
     last_cell_in_column,
     last_cell_in_subgrid,
     single_cell_elimination,
+    row_elimination,
+    column_elimination,
     subgrid_elimination
 ]
 
