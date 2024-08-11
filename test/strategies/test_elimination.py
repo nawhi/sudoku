@@ -1,6 +1,6 @@
 from core.parser import parse_board
 from core.model.board import make_empty_board
-from core.strategies.elimination import single_cell_elimination, subgrid_elimination
+from core.strategies.elimination import single_cell_elimination, subgrid_elimination, column_elimination
 from test.util import SudokuTestCase
 
 
@@ -99,7 +99,6 @@ class TestSubgridElimination(SudokuTestCase):
             └───────┴───────┴───────┘
         """)
 
-        # adds 7 in top left subgrid
         after = subgrid_elimination(before)
 
         expected = parse_board("""
@@ -137,7 +136,6 @@ class TestSubgridElimination(SudokuTestCase):
             └───────┴───────┴───────┘
         """)
 
-        # adds 7 in top left subgrid
         after = subgrid_elimination(before)
 
         expected = parse_board("""

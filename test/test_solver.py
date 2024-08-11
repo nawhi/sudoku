@@ -20,8 +20,6 @@ def load_from_digit_string(line: str) -> SudokuBoard:
 
 
 def load_qqwing_examples(level: str):
-    # open the file test/resources/qqwing_{level}.sdm in the most Pythonic way
-    # relative to our working directory it is ./resources/qqwing_{level}.sdm
     path = os.path.join("resources", f"qqwing_{level}.sdm")
     with open(path) as f:
         return [parse_board(line) for line in f.readlines()]
@@ -31,7 +29,7 @@ class TestSolver(SudokuTestCase):
     def test_solves_single_easy(self):
         self.assertTrue(can_solve(PUZZLE_EASY))
 
-    @unittest.skip("WIP")
+    # @unittest.skip("WIP")
     def test_solves_single_medium(self):
         self.assertTrue(can_solve(PUZZLE_MEDIUM))
 
