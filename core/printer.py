@@ -15,7 +15,7 @@ def row_as_string(row: List[int]) -> str:
     return f"│ {cells_as_string(row[:3])} │ {cells_as_string(row[3:6])} │ {cells_as_string(row[6:9])} │"
 
 
-def board_as_string(board: SudokuBoard, line_prefix="") -> str:
+def board_as_string(board: SudokuBoard) -> str:
     header = "┌───────┬───────┬───────┐"
     footer = "└───────┴───────┴───────┘"
     separator = "├───────┼───────┼───────┤"
@@ -37,8 +37,5 @@ def board_as_string(board: SudokuBoard, line_prefix="") -> str:
         row_as_string(rows[8]),
         footer
     ]
-
-    if line_prefix:
-        rows = [line_prefix + line for line in rows]
 
     return "\n".join(rows)

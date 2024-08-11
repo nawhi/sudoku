@@ -1,6 +1,6 @@
 import numpy as np
 
-from core.model.board import SudokuBoard, subgrid_of_board, subgrids_of_board
+from core.model.board import SudokuBoard, subgrid_of_board
 
 
 def single_cell_elimination(board: SudokuBoard) -> SudokuBoard:
@@ -12,26 +12,12 @@ def single_cell_elimination(board: SudokuBoard) -> SudokuBoard:
         x, y = it.multi_index
         candidates = set(range(1, 10))
 
-        row = board[x, :]
-        candidates -= set(row)
+        candidates -= set(board[x, :])
+        candidates -= set(board[:, y])
+        candidates -= set(subgrid_of_board(board, x // 3, y // 3).flatten())
 
         if len(candidates) == 1:
             board[x, y] = candidates.pop()
-            continue
-
-        col = board[:, y]
-        candidates -= set(col)
-
-        if len(candidates) == 1:
-            board[x, y] = candidates.pop()
-            continue
-
-        subgrid = subgrid_of_board(board, x // 3, y // 3)
-        candidates -= set(subgrid.flatten())
-
-        if len(candidates) == 1:
-            board[x, y] = candidates.pop()
-            continue
 
     return board
 
@@ -61,11 +47,28 @@ def subgrid_elimination(board: SudokuBoard) -> SudokuBoard:
     return board
 
 
-def row_elimination(board: SudokuBoard) -> SudokuBoard:
-    print("Row elimination strategy not implemented yet")
-    return board
-
-
 def column_elimination(board: SudokuBoard) -> SudokuBoard:
-    print("Column elimination strategy not implemented yet")
+    # TODO - this initial implementation is broken
+    # for x in range(9):
+    #     col = board[:, x]
+    #     missing_nums = set(range(1, 10)) - set(col)
+    #     missing_locns = np.argwhere(col == 0).flatten()
+    #
+    #     for num in missing_nums:
+    #         possible_locns = []
+    #         for y in missing_locns:
+    #             row = numbers_in_row(board, y)
+    #             subgrid = numbers_in_subgrid(board, x // 3, y // 3)
+    #             is_possible = num not in row and num not in subgrid
+    #             if is_possible:
+    #                 possible_locns.append((y, x))
+    #
+    #         if len(possible_locns) == 1:
+    #             y, x = possible_locns[0]
+    #             board[y, x] = num
+
     return board
+
+
+def row_elimination(board: SudokuBoard) -> SudokuBoard:
+    raise NotImplementedError("row_elimination is not yet implemented")
